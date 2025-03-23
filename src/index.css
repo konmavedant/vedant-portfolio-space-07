@@ -189,11 +189,12 @@ html {
   scroll-behavior: smooth;
 }
 
-html {
-  @apply light;
+/* Set initial light mode by removing the 'dark' class */
+html:not(.dark) {
+  color-scheme: light;
 }
 
 /* Override any dark mode defaults */
-body {
-  @apply light;
+body:not(.dark) {
+  color-scheme: light;
 }
