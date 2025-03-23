@@ -88,7 +88,7 @@ const Experience: React.FC = () => {
         />
         
         <div className="max-w-3xl mx-auto mt-16">
-          <div className="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-glow before:to-purple-glow before:via-muted/70">
+          <div className="relative">
             <div className="space-y-2">
               {experiences.map((exp, index) => (
                 <div className="timeline-item opacity-0" key={index}>
@@ -103,7 +103,7 @@ const Experience: React.FC = () => {
               ))}
               
               {/* Timeline end */}
-              <div className="relative flex justify-center timeline-item opacity-0">
+              <div className="relative flex justify-start ml-1.5 timeline-item opacity-0">
                 <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-glow to-purple-glow animate-pulse" />
               </div>
             </div>

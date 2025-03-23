@@ -20,10 +20,11 @@ const About: React.FC = () => {
           <div className="md:col-span-5 animate-fade-in">
             <div className="glass-card rounded-xl p-6 h-full">
               <div className="aspect-square w-full rounded-lg overflow-hidden mb-6">
-                {/* Placeholder for about image - replace with actual image later */}
-                <div className="w-full h-full bg-gradient-to-br from-blue-glow/30 to-purple-glow/30 flex items-center justify-center">
-                  <span className="text-5xl font-bold text-gradient">VJ</span>
-                </div>
+                <img 
+                  src="/lovable-uploads/b05e8844-49b2-4e2a-82d0-4d7b75bb043d.png" 
+                  alt="Vedant Jha" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               <div className="space-y-3">

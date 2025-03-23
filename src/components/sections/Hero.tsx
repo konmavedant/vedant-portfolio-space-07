@@ -65,10 +65,11 @@ const Hero: React.FC = () => {
           <div className="lg:col-span-4 flex justify-center lg:justify-end">
             <div className="relative init-invisible animate-delay-400">
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-white/10 animate-float">
-                <div className="w-full h-full bg-gradient-to-br from-blue-glow/10 to-purple-glow/10 glass-card rounded-full flex items-center justify-center">
-                  {/* Placeholder for profile image - replace with actual image later */}
-                  <div className="text-6xl font-bold text-gradient">VJ</div>
-                </div>
+                <img 
+                  src="/lovable-uploads/b05e8844-49b2-4e2a-82d0-4d7b75bb043d.png" 
+                  alt="Vedant Jha" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Decorative elements */}

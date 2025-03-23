@@ -17,15 +17,24 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
     // Add or remove dark class from document
     if (newTheme) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   };
 
-  // Initialize theme - light mode by default
+  // Initialize theme - check local storage or default to light mode
   useEffect(() => {
-    // Remove dark mode to ensure light mode by default
-    document.documentElement.classList.remove('dark');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   }, []);
 
   return (

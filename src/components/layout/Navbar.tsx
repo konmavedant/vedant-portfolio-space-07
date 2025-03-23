@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X, Calendar } from 'lucide-react';
 import ThemeToggle from '../ui/ThemeToggle';
-import SocialLinks from '../common/SocialLinks';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -66,7 +65,6 @@ const Navbar: React.FC = () => {
               <Calendar className="mr-2 h-4 w-4" />
               Connect Now
             </Button>
-            <SocialLinks />
             <ThemeToggle />
           </div>
         </div>
@@ -108,11 +106,6 @@ const Navbar: React.FC = () => {
                 </a>
               </li>
             ))}
-            <li className="mt-4 pt-4 border-t border-muted/30">
-              <div className="px-4">
-                <SocialLinks className="justify-start" />
-              </div>
-            </li>
           </ul>
         </div>
       )}
