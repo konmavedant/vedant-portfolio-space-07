@@ -17,7 +17,10 @@ const Index: React.FC = () => {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      // If theme is not set, default to light mode
+      if (!savedTheme) {
+        localStorage.setItem('theme', 'light');
+      }
     }
   }, []);
 

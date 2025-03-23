@@ -30,7 +30,10 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       {/* Timeline stem */}
       <div className="flex flex-col items-center mr-6">
         <div className="w-3 h-3 bg-primary rounded-full z-10 transition-all duration-300 group-hover:scale-150 group-hover:bg-gradient-to-r group-hover:from-blue-glow group-hover:to-purple-glow" />
-        {index !== 6 && <div className="w-0.5 bg-muted/70 h-full mt-1" />}
+        <div className={cn(
+          "w-0.5 bg-muted/70 h-full mt-1", 
+          index === 6 && "hidden" // Hide the stem for the last item
+        )} />
       </div>
       
       {/* Content */}

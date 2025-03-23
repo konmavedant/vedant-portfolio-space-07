@@ -189,6 +189,11 @@ html {
   scroll-behavior: smooth;
 }
 
-html, body {
-  @apply dark;
+html {
+  @apply light;
+}
+
+/* Override any dark mode defaults */
+body {
+  @apply light;
 }

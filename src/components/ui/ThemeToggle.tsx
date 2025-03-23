@@ -36,7 +36,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
-    } else if (prefersDarkMode) {
+    } else if (prefersDarkMode && savedTheme === null) {
       setIsDark(true);
       document.documentElement.classList.add('dark');
       localStorage.setItem('theme', 'dark');
