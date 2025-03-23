@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SectionTitle from '../ui/SectionTitle';
-import Button from '../ui/Button';
+import { Button } from '@/components/ui/button';
 import { Download, Mail } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -56,19 +56,19 @@ const About: React.FC = () => {
               
               <div className="mt-6 flex gap-4">
                 <Button 
-                  variant="primary" 
+                  variant="default" 
                   className="flex-1"
-                  icon={<Download size={18} />}
                   onClick={() => window.open('/resume.pdf', '_blank')}
                 >
+                  <Download className="mr-2 h-4 w-4" />
                   Download CV
                 </Button>
                 <Button 
                   variant="outline" 
                   className="flex-1"
-                  icon={<Mail size={18} />}
                   onClick={() => window.location.href = 'mailto:vedantsj99@gmail.com'}
                 >
+                  <Mail className="mr-2 h-4 w-4" />
                   Contact Me
                 </Button>
               </div>

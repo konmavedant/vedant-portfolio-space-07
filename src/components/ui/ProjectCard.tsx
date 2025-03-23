@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ExternalLink, Play } from 'lucide-react';
-import Button from './Button';
+import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 interface ProjectCardProps {
@@ -64,20 +64,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <Button 
               variant="outline" 
               size="sm" 
-              icon={<ExternalLink size={16} />}
               onClick={() => window.open(projectUrl, '_blank')}
             >
+              <ExternalLink className="mr-2 h-4 w-4" />
               Visit
             </Button>
           )}
           
           {videoUrl && (
             <Button 
-              variant="primary" 
+              variant="default" 
               size="sm" 
-              icon={<Play size={16} />}
               onClick={() => window.open(videoUrl, '_blank')}
             >
+              <Play className="mr-2 h-4 w-4" />
               Demo
             </Button>
           )}

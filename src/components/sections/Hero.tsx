@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import Button from '../ui/Button';
+import { Button } from '@/components/ui/button';
 import SocialLinks from '../common/SocialLinks';
 import { ChevronRight, Eye, Download } from 'lucide-react';
 
@@ -42,17 +42,17 @@ const Hero: React.FC = () => {
             <div className="flex flex-wrap gap-5 pt-4 init-invisible animate-delay-500">
               <Button 
                 size="lg" 
-                icon={<Eye size={18} />}
                 onClick={() => document.getElementById('projects')?.scrollIntoView()}
               >
-                View Projects <ChevronRight size={16} />
+                <Eye className="mr-2 h-5 w-5" />
+                View Projects <ChevronRight className="ml-1 h-4 w-4" />
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
-                icon={<Download size={18} />}
                 onClick={() => window.open('/resume.pdf', '_blank')}
               >
+                <Download className="mr-2 h-5 w-5" />
                 Download CV
               </Button>
             </div>

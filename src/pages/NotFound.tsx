@@ -2,7 +2,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Button from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import { Home } from "lucide-react";
 
 const NotFound = () => {
@@ -28,9 +28,9 @@ const NotFound = () => {
         </p>
         <Button 
           onClick={() => window.location.href = '/'}
-          icon={<Home size={20} />}
           className="mx-auto"
         >
+          <Home className="mr-2 h-5 w-5" />
           Return to Home
         </Button>
       </div>
