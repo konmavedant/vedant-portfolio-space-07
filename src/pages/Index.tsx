@@ -10,9 +10,15 @@ import Skills from '../components/sections/Skills';
 import Contact from '../components/sections/Contact';
 
 const Index: React.FC = () => {
-  // Set light mode when the component mounts
+  // Set theme when the component mounts based on localStorage or default to light
   useEffect(() => {
-    document.documentElement.classList.remove('dark');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
   }, []);
 
   // Add scroll reveal animation

@@ -27,13 +27,19 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
   // Initialize theme - check local storage or default to light mode
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
     if (savedTheme === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
-    } else {
+    } else if (savedTheme === 'light' || savedTheme === null) {
       setIsDark(false);
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
+    } else if (prefersDarkMode) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     }
   }, []);
 
@@ -46,8 +52,13 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
         className
       )}
       aria-label="Toggle theme"
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
-      {isDark ? <Sun size={20} /> : <Moon size={20} />}
+      {isDark ? (
+        <Sun size={20} className="transition-transform duration-300 hover:rotate-45" />
+      ) : (
+        <Moon size={20} className="transition-transform duration-300 hover:rotate-12" />
+      )}
     </button>
   );
 };

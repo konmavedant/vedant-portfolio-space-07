@@ -30,16 +30,16 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       {/* Timeline stem */}
       <div className="flex flex-col items-center mr-6">
         <div className="w-3 h-3 bg-primary rounded-full z-10 transition-all duration-300 group-hover:scale-150 group-hover:bg-gradient-to-r group-hover:from-blue-glow group-hover:to-purple-glow" />
-        <div className="w-0.5 bg-muted/70 h-full" />
+        {index !== 6 && <div className="w-0.5 bg-muted/70 h-full mt-1" />}
       </div>
       
       {/* Content */}
       <div className="pb-12 flex-1">
         <div className="glass-card p-5 rounded-xl transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
           <h3 className="text-xl font-bold">{title}</h3>
-          <div className="flex justify-between items-center mt-1 mb-4">
+          <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mt-1 mb-4 gap-2">
             <p className="text-primary font-medium">{organization}</p>
-            <span className="text-sm text-muted-foreground px-3 py-1 rounded-full bg-muted/30">
+            <span className="text-sm text-muted-foreground px-3 py-1 rounded-full bg-muted/30 w-fit">
               {period}
             </span>
           </div>

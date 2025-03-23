@@ -38,7 +38,7 @@ const Navbar: React.FC = () => {
       )}
     >
       <div className="flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-gradient">Vedant Jha</a>
+        <a href="#" className="text-xl font-bold text-gradient">vedantweb3</a>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             <Button 
               variant="default" 
               size="sm"
-              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 animate-pulse"
+              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 transition-all duration-300 animate-pulse"
               onClick={handleCalendlyOpen}
             >
               <Calendar className="mr-2 h-4 w-4" />
@@ -71,15 +71,6 @@ const Navbar: React.FC = () => {
         
         {/* Mobile Navigation Button */}
         <div className="flex items-center gap-4 md:hidden">
-          <Button 
-            variant="default" 
-            size="sm"
-            className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 mr-2"
-            onClick={handleCalendlyOpen}
-          >
-            <Calendar className="mr-2 h-4 w-4" />
-            Connect
-          </Button>
           <ThemeToggle />
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
@@ -106,6 +97,20 @@ const Navbar: React.FC = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <Button 
+                variant="default" 
+                size="sm"
+                className="w-full bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 mt-2"
+                onClick={() => {
+                  handleCalendlyOpen();
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                <Calendar className="mr-2 h-4 w-4" />
+                Connect Now
+              </Button>
+            </li>
           </ul>
         </div>
       )}

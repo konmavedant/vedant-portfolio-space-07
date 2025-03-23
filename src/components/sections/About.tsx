@@ -2,7 +2,7 @@
 import React from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import { Button } from '@/components/ui/button';
-import { Download, Mail } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -55,22 +55,14 @@ const About: React.FC = () => {
                 </div>
               </div>
               
-              <div className="mt-6 flex gap-4">
+              <div className="mt-6 flex justify-center">
                 <Button 
                   variant="default" 
-                  className="flex-1"
+                  className="w-full"
                   onClick={() => window.open('/resume.pdf', '_blank')}
                 >
                   <Download className="mr-2 h-4 w-4" />
                   Download CV
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="flex-1"
-                  onClick={() => window.location.href = 'mailto:vedantsj99@gmail.com'}
-                >
-                  <Mail className="mr-2 h-4 w-4" />
-                  Contact Me
                 </Button>
               </div>
             </div>
