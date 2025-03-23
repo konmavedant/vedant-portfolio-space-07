@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <div className="lg:col-span-4 flex justify-center lg:justify-end">
+          <div className="lg:col-span-4 hidden lg:flex justify-center lg:justify-end">
             <div className="relative init-invisible animate-delay-400">
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-2 border-white/10 animate-float">
                 <img 

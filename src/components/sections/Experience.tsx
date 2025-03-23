@@ -102,10 +102,7 @@ const Experience: React.FC = () => {
                 </div>
               ))}
               
-              {/* Timeline end */}
-              <div className="relative flex justify-start ml-1.5 timeline-item opacity-0">
-                <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-glow to-purple-glow animate-pulse" />
-              </div>
+              {/* Removed the last dot here */}
             </div>
           </div>
         </div>

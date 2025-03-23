@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
             <Button 
               variant="default" 
               size="sm"
-              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 transition-all duration-300 animate-pulse"
+              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 transition-all duration-300"
               onClick={handleCalendlyOpen}
             >
               <Calendar className="mr-2 h-4 w-4" />
