@@ -8,7 +8,7 @@ interface ThemeToggleProps {
 }
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const toggleTheme = () => {
     const newTheme = !isDark;
@@ -22,10 +22,10 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ className }) => {
     }
   };
 
-  // Initialize theme
+  // Initialize theme - light mode by default
   useEffect(() => {
-    // Force dark mode for now
-    document.documentElement.classList.add('dark');
+    // Remove dark mode to ensure light mode by default
+    document.documentElement.classList.remove('dark');
   }, []);
 
   return (

@@ -10,6 +10,11 @@ import Skills from '../components/sections/Skills';
 import Contact from '../components/sections/Contact';
 
 const Index: React.FC = () => {
+  // Set light mode when the component mounts
+  useEffect(() => {
+    document.documentElement.classList.remove('dark');
+  }, []);
+
   // Add scroll reveal animation
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -29,10 +34,27 @@ const Index: React.FC = () => {
       observer.observe(section);
     });
 
+    // Add fade-in animations to various elements
+    const animateElements = () => {
+      const elements = document.querySelectorAll('.animate-on-scroll');
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        
+        if (rect.top <= windowHeight * 0.8) {
+          el.classList.add('animate-fade-in');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', animateElements);
+    animateElements(); // Run once at the beginning
+
     return () => {
       document.querySelectorAll('section').forEach((section) => {
         observer.unobserve(section);
       });
+      window.removeEventListener('scroll', animateElements);
     };
   }, []);
 

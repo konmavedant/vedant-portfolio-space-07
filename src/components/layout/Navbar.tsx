@@ -1,9 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Calendar } from 'lucide-react';
 import ThemeToggle from '../ui/ThemeToggle';
 import SocialLinks from '../common/SocialLinks';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,15 +26,19 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleCalendlyOpen = () => {
+    window.open('https://calendly.com/vedantjha/30min', '_blank');
+  };
   
   return (
     <nav 
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-8",
-        isScrolled ? "glass backdrop-blur-lg shadow-lg py-3" : ""
+        "fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 py-3 px-6 md:px-8 rounded-full max-w-5xl w-[95%]",
+        isScrolled ? "glass backdrop-blur-lg shadow-lg" : ""
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <a href="#" className="text-xl font-bold text-gradient">Vedant Jha</a>
         
         {/* Desktop Navigation */}
@@ -52,6 +57,15 @@ const Navbar: React.FC = () => {
           </ul>
           
           <div className="flex items-center gap-4">
+            <Button 
+              variant="default" 
+              size="sm"
+              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 animate-pulse"
+              onClick={handleCalendlyOpen}
+            >
+              <Calendar className="mr-2 h-4 w-4" />
+              Connect Now
+            </Button>
             <SocialLinks />
             <ThemeToggle />
           </div>
@@ -59,6 +73,15 @@ const Navbar: React.FC = () => {
         
         {/* Mobile Navigation Button */}
         <div className="flex items-center gap-4 md:hidden">
+          <Button 
+            variant="default" 
+            size="sm"
+            className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 mr-2"
+            onClick={handleCalendlyOpen}
+          >
+            <Calendar className="mr-2 h-4 w-4" />
+            Connect
+          </Button>
           <ThemeToggle />
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
@@ -72,7 +95,7 @@ const Navbar: React.FC = () => {
       
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass absolute top-full left-0 w-full animate-slide-in-right">
+        <div className="md:hidden glass absolute top-full mt-3 left-0 w-full animate-slide-in-right rounded-xl">
           <ul className="flex flex-col gap-3 p-4">
             {links.map((link) => (
               <li key={link.label}>

@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   return (
     <div 
       className={cn(
-        "glass-card rounded-xl overflow-hidden group animate-fade-in",
+        "glass-card rounded-xl overflow-hidden group animate-fade-in hover:shadow-lg hover:-translate-y-2 transition-all duration-300",
         index === 0 ? "animate-delay-100" : "",
         index === 1 ? "animate-delay-200" : "",
         index === 2 ? "animate-delay-300" : "",
@@ -43,7 +43,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       )}
       <div className="p-6">
-        <h3 className="text-xl font-bold mb-2">{title}</h3>
+        <h3 className="text-xl font-bold mb-2 group-hover:text-gradient transition-all duration-300">{title}</h3>
         <p className="text-muted-foreground mb-4">{description}</p>
 
         {/* Tools */}
@@ -51,7 +51,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {tools.map((tool, i) => (
             <span 
               key={i} 
-              className="text-xs px-3 py-1 rounded-full bg-muted/30 text-muted-foreground"
+              className="text-xs px-3 py-1 rounded-full bg-muted/30 text-muted-foreground group-hover:bg-muted/50 transition-all duration-300"
             >
               {tool}
             </span>
@@ -65,6 +65,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               variant="outline" 
               size="sm" 
               onClick={() => window.open(projectUrl, '_blank')}
+              className="transition-all duration-300 hover:border-blue-glow"
             >
               <ExternalLink className="mr-2 h-4 w-4" />
               Visit
@@ -76,6 +77,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               variant="default" 
               size="sm" 
               onClick={() => window.open(videoUrl, '_blank')}
+              className="bg-gradient-to-r from-blue-glow to-purple-glow hover:opacity-90 transition-all duration-300"
             >
               <Play className="mr-2 h-4 w-4" />
               Demo

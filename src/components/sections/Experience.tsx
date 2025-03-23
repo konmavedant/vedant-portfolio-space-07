@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import SectionTitle from '../ui/SectionTitle';
 import TimelineItem from '../ui/TimelineItem';
 
 const Experience: React.FC = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
   const experiences = [
     {
       title: "Project Manager & Lead Community Manager",
@@ -49,8 +51,33 @@ const Experience: React.FC = () => {
     }
   ];
 
+  // Add scroll reveal animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+    );
+
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item) => {
+      observer.observe(item);
+    });
+
+    return () => {
+      timelineItems.forEach((item) => {
+        observer.unobserve(item);
+      });
+    };
+  }, []);
+
   return (
-    <section className="py-20 relative" id="experience">
+    <section className="py-20 relative" id="experience" ref={sectionRef}>
       {/* Gradient background */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-glow-purple" />
       
@@ -64,19 +91,20 @@ const Experience: React.FC = () => {
           <div className="relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-blue-glow before:to-purple-glow before:via-muted/70">
             <div className="space-y-2">
               {experiences.map((exp, index) => (
-                <TimelineItem 
-                  key={index}
-                  title={exp.title}
-                  organization={exp.organization}
-                  period={exp.period}
-                  description={exp.description}
-                  index={index}
-                />
+                <div className="timeline-item opacity-0" key={index}>
+                  <TimelineItem 
+                    title={exp.title}
+                    organization={exp.organization}
+                    period={exp.period}
+                    description={exp.description}
+                    index={index}
+                  />
+                </div>
               ))}
               
               {/* Timeline end */}
-              <div className="relative flex justify-center">
-                <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-glow to-purple-glow" />
+              <div className="relative flex justify-center timeline-item opacity-0">
+                <div className="w-4 h-4 rounded-full bg-gradient-to-r from-blue-glow to-purple-glow animate-pulse" />
               </div>
             </div>
           </div>
